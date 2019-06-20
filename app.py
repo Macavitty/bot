@@ -277,18 +277,18 @@ def order_handler(message, order_type):
 # ===============================================================================================
 # If you want to use webhooks uncommit next lines
 
-# server = Flask(__name__)
+server = Flask(__name__)
 
-# @server.route('/' + TOKEN, methods=['POST'])
-# def get_message():
-# 	bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
-# 	return "POST", 200
+@server.route('/' + TOKEN, methods=['POST'])
+def get_message():
+	bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+ 	return "POST", 200
 
-# @server.route('/')
-# def index():
-# 	bot.remove_webhook()
-# 	bot.set_webhook(url="https://{}.herokuapp.com/{}".format(APP_NAME, TOKEN))
-# 	return "* Successfully connected *\n* Cowabunga *", 200
+@server.route('/')
+def index():
+ 	bot.remove_webhook()
+ 	bot.set_webhook(url="https://{}.herokuapp.com/{}".format(APP_NAME, TOKEN))
+ 	return "* Successfully connected *\n* Cowabunga *", 200
         
 # ===============================================================================================
 # If you want to use polling uncommit next two lines
