@@ -1,0 +1,18 @@
+drop table trader;
+create table trader(
+  uid integer primary key,
+  u_state boolean,
+  psw_mode boolean,
+  step varchar(100),
+  password varchar(100) not null,
+  old_password varchar(100) not null
+);
+
+insert into trader (uid, u_state, password) values (1, 't', 'a');
+
+-- utils --
+
+drop table trader;
+
+select * from trader;
+
